@@ -5,12 +5,12 @@
  */
 package Business.Enterprise;
 
-import Business.Role.Role;
+import Business.Role.Title;
 import java.util.ArrayList;
 
 /**
  *
- * @author kashish
+ * @author patol
  */
 public abstract class HospitalEnterprise extends Enterprise {
 
@@ -18,7 +18,7 @@ public abstract class HospitalEnterprise extends Enterprise {
         super(name, Enterprise.EnterpriseType.Hospital);
     }
     @Override
-    public ArrayList<Role> getSupportedRole() {
+    public ArrayList<Title> getTitle() {
         return null;
     }
    

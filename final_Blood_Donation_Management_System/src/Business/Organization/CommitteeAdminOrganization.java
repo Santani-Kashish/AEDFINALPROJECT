@@ -5,13 +5,14 @@
  */
 package Business.Organization;
 
-import Business.Role.CommitteeAdminRole;
-import Business.Role.Role;
+import Business.Role.CommitteeAdminTitle;
+import Business.Role.Title;
+
 import java.util.ArrayList;
 
 /**
  *
- * @author sreshtha
+ * @author patol
  */
 public class CommitteeAdminOrganization  extends Organization{
 
@@ -20,10 +21,10 @@ public class CommitteeAdminOrganization  extends Organization{
     }
     
     @Override
-    public ArrayList<Role> getSupportedRole() {
-        ArrayList<Role> roles = new ArrayList();
-        roles.add(new CommitteeAdminRole());
-        return roles;
+    public ArrayList<Title> getTitle() {
+        ArrayList<Title> titles = new ArrayList();
+        titles.add(new CommitteeAdminTitle());
+        return titles;
     }
      
 }

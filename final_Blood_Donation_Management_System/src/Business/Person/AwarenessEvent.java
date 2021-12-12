@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  *
- * @author sreshtha
+ * @author srikar
  */
 public class AwarenessEvent {
     

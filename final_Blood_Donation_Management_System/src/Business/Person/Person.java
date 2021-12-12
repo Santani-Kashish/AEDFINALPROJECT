@@ -4,9 +4,10 @@
  * and open the template in the editor.
  */
 package Business.Person;
+
+
 /**
- *
- * @author sreshtha
+ * This class is used to store the details of the person.
  */
 public class Person {
     private String name;
@@ -43,6 +44,9 @@ public class Person {
     public void setDate(String date) {
         this.date = date;
     }
+
+
+
 
     /**
      * @return the name
@@ -141,6 +145,13 @@ public class Person {
     public void setSign(String sign) {
         this.sign = sign;
     }
+
+
+    public String toString(){
+        return name;
+    }
+
+
 
     
 }

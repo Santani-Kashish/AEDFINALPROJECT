@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author sreshtha
+ * @author TEJAL
  */
 public class OrganizationDirectory {
     
@@ -46,13 +46,13 @@ public class OrganizationDirectory {
             organizationList.add(organization);
         }
           
-         if (type.getValue().equals(Type.TransportationAdmin.getValue())){
-            organization = new TransportationAdminOrganization();
+         if (type.getValue().equals(Type.Delivery.getValue())){
+            organization = new CarriageAdmin();
             organizationList.add(organization);
         }
          
-          if (type.getValue().equals(Type.DeliveryMan.getValue())){
-            organization = new DeliveryManOrganization();
+          if (type.getValue().equals(Type.Person.getValue())){
+            organization = new CarriageOrg();
             organizationList.add(organization);
         }
              if (type.getValue().equals(Type.PublicityTeamAdmin.getValue())){

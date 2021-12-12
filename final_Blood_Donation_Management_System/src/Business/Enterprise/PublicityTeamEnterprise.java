@@ -5,12 +5,13 @@
  */
 package Business.Enterprise;
 
-import Business.Role.Role;
+import Business.Role.Title;
+
 import java.util.ArrayList;
 
 /**
  *
- * @author kashish
+ * @author TEJAL
  */
     public abstract class PublicityTeamEnterprise extends Enterprise {
 
@@ -18,7 +19,7 @@ import java.util.ArrayList;
         super(name, Enterprise.EnterpriseType.PublicityTeam);
     }
     @Override
-    public ArrayList<Role> getSupportedRole() {
+    public ArrayList<Title> getTitle() {
         return null;
     }
    

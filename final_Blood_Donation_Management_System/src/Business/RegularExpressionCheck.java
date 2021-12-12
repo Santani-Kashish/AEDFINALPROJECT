@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 
 /**
  *
- * @author kashish
+ * @author TEJAL
  */
 public class RegularExpressionCheck {
     public static int c=0;

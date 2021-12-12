@@ -6,9 +6,9 @@ package Business.WorkQueue;
 
 /**
  *
- * @author Kashish
+ * @author srikar
  */
-public class LabTestWorkRequest extends WorkRequest{
+public class LabTestWorkRequest extends Request {
     
     
     
@@ -22,7 +22,5 @@ public class LabTestWorkRequest extends WorkRequest{
     }
     private String patientName;
 
-   
-    
-    
+ 
 }

@@ -7,7 +7,7 @@ package Business.Person;
 
 /**
  *
- * @author sreshtha
+ * @author TEJAL
  */
 public class Visitor {
     private String name;

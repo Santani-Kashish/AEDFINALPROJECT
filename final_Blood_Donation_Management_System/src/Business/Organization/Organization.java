@@ -4,26 +4,26 @@
  */
 package Business.Organization;
 
-import Business.Employee.EmployeeDirectory;
-import Business.Role.Role;
-import Business.Account.AccountDirectory;
+import Business.Employee.PersonRepository;
+import Business.Role.Title;
+import Business.Account.Repository;
 import Business.Person.DonorDirectory;
 import Business.Person.PatientDirectory;
 import Business.Person.RecipientDirectory;
 import Business.Person.VisitorDirectory;
-import Business.WorkQueue.WorkQueue;
+
 import java.util.ArrayList;
 
 /**
  *
- * @author sreshtha
+ * @author TEJAL
  */
 public abstract class Organization {
 
     private String name;
-    private EmployeeDirectory employeeDirectory;
-    private AccountDirectory accountDirectory;
-    public abstract ArrayList<Role> getSupportedRole();
+    private PersonRepository employeeDirectory;
+    private Repository accountDirectory;
+    public abstract ArrayList<Title> getTitle();
     private DonorDirectory donorDirectory;
     private RecipientDirectory recipientDirectory;
     private PatientDirectory patientDirectory;
@@ -39,11 +39,11 @@ public abstract class Organization {
     private int organizationID;
     private static int counter = 1;
 
-    public AccountDirectory getAccountDirectory() {
+    public Repository getAccountDirectory() {
         return accountDirectory;
     }
 
-    public void setAccountDirectory(AccountDirectory accountDirectory) {
+    public void setAccountDirectory(Repository accountDirectory) {
         this.accountDirectory = accountDirectory;
     }
 
@@ -65,7 +65,7 @@ public abstract class Organization {
     
     public enum Type{
         Doctor("Doctor Organization "),PublicityTeamAdmin("PublicityTeam Admin Organization"),
-        Reception("Reception Organization"),CommitteeAdmin("CommitteeAdmin"),PlasmaBankAdmin("Plasma Bank Admin"),TransportationAdmin("Transportation Admin"),DeliveryMan("DeliveryMan");
+        Reception("Reception Organization"),CommitteeAdmin("CommitteeAdmin"),PlasmaBankAdmin("Plasma Bank Admin"), Delivery("Transportation Admin"), Person("DeliveryMan");
         private String value;
         private Type(String value) {
             this.value = value;
@@ -78,8 +78,8 @@ public abstract class Organization {
     public Organization(String name) {
         this.name = name;
        
-        this.employeeDirectory = new EmployeeDirectory();
-        this.accountDirectory = new AccountDirectory();
+        this.employeeDirectory = new PersonRepository();
+        this.accountDirectory = new Repository();
         this.donorDirectory = new DonorDirectory();
         this.recipientDirectory = new RecipientDirectory();
         this.organizationID = counter;
@@ -87,7 +87,7 @@ public abstract class Organization {
         ++counter;
     }
     
-    public AccountDirectory getUserAccountDirectory() {
+    public Repository getData() {
         return accountDirectory;
     }
 
@@ -95,7 +95,7 @@ public abstract class Organization {
         return organizationID;
     }
 
-    public EmployeeDirectory getEmployeeDirectory() {
+    public PersonRepository getEmpDetails() {
         return employeeDirectory;
     }
     

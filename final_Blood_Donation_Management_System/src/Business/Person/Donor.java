@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author sreshtha
+ * @author srikar
  */
 public class Donor extends Person{
     
