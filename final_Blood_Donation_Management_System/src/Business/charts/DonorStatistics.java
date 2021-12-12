@@ -6,8 +6,7 @@
 package Business.charts;
 
 /**
- *
- * @author Kashish
+ * This class is used to generate the statistics of the donors.
  */
 public class DonorStatistics {
     

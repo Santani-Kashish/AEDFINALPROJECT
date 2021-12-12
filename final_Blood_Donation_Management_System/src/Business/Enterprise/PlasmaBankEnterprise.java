@@ -4,12 +4,12 @@
  */
 package Business.Enterprise;
 
-import Business.Role.Role;
+import Business.Role.Title;
 import java.util.ArrayList;
 
 /**
  *
- * @author kashish
+ * @author srikar
  */
 public abstract class PlasmaBankEnterprise extends Enterprise{
 
@@ -18,7 +18,7 @@ public abstract class PlasmaBankEnterprise extends Enterprise{
     }
      
     @Override
-    public ArrayList<Role> getSupportedRole() {
+    public ArrayList<Title> getTitle() {
         return null;
     }
 }

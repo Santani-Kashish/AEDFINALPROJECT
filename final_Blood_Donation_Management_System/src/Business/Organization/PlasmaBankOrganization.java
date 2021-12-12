@@ -6,13 +6,13 @@
 package Business.Organization;
 
 
-import Business.Role.PlasmaBankAdminRole;
-import Business.Role.Role;
+import Business.Role.PlasmaTitle;
+import Business.Role.Title;
 import java.util.ArrayList;
 
 /**
  *
- * @author sreshtha
+ * @author patol
  */
 public class PlasmaBankOrganization extends Organization{
 
@@ -21,10 +21,10 @@ public class PlasmaBankOrganization extends Organization{
     }
     
     @Override
-    public ArrayList<Role> getSupportedRole() {
-        ArrayList<Role> roles = new ArrayList();
-        roles.add(new PlasmaBankAdminRole());
-        return roles;
+    public ArrayList<Title> getTitle() {
+        ArrayList<Title> titles = new ArrayList();
+        titles.add(new PlasmaTitle());
+        return titles;
     }
      
 } 
