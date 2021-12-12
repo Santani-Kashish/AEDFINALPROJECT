@@ -10,8 +10,8 @@ import Business.ECOSystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import javax.swing.JPanel;
-import userInterface.Transportation.TransportationAdminWorkAreaJPanel;
-import userInterface.plasmabank.ManagePlasmaJPanel;
+import userInterface.transport.TransportationAdminWorkAreaJPanel;
+
 
 /**
  *

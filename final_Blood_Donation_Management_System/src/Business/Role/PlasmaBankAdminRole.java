@@ -11,7 +11,7 @@ import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import javax.swing.JPanel;
 import userInterface.Committee.CommiteeWorkAreaJPanel;
-import userInterface.plasmabank.ManagePlasmaJPanel;
+
 
 /**
  *
