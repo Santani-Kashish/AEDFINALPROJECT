@@ -5,13 +5,14 @@
  */
 package Business.Organization;
 
-import Business.Role.AwarenessRole;
-import Business.Role.Role;
+import Business.Role.AwarenessTitle;
+import Business.Role.Title;
+
 import java.util.ArrayList;
 
 /**
  *
- * @author sreshtha
+ * @author drrane
  */
 public class PublicityTeamOrganization extends Organization{
 
@@ -20,10 +21,10 @@ public class PublicityTeamOrganization extends Organization{
     }
     
     @Override
-    public ArrayList<Role> getSupportedRole() {
-        ArrayList<Role> roles = new ArrayList();
-        roles.add(new AwarenessRole());
-        return roles;
+    public ArrayList<Title> getTitle() {
+        ArrayList<Title> titles = new ArrayList();
+        titles.add(new AwarenessTitle());
+        return titles;
     }
 }
      

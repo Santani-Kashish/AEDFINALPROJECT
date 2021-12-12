@@ -5,12 +5,13 @@
  */
 package Business.Enterprise;
 
-import Business.Role.Role;
+import Business.Role.Title;
+
 import java.util.ArrayList;
 
 /**
  *
- * @author kashish
+ * @author patol
  */
 public class CommitteeEnterprise extends Enterprise{
 
@@ -19,7 +20,7 @@ public class CommitteeEnterprise extends Enterprise{
     }
     
     @Override
-    public ArrayList<Role> getSupportedRole() {
+    public ArrayList<Title> getTitle() {
         return null;
     }
 }

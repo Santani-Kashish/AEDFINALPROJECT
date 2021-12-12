@@ -7,7 +7,7 @@ package Business.Person;
 
 /**
  *
- * @author sreshtha
+ * @author srikar
  */
 public class Recipient extends Person implements Comparable<Recipient> {
     

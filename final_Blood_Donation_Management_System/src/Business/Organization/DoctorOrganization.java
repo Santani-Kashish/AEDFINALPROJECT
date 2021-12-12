@@ -4,13 +4,14 @@
  */
 package Business.Organization;
 
-import Business.Role.DoctorRole;
-import Business.Role.Role;
+import Business.Role.DoctorTitle;
+import Business.Role.Title;
+
 import java.util.ArrayList;
 
 /**
  *
- * @author sreshtha
+ * @author patol
  */
 public class DoctorOrganization extends Organization{
 
@@ -19,10 +20,10 @@ public class DoctorOrganization extends Organization{
     }
     
     @Override
-    public ArrayList<Role> getSupportedRole() {
-        ArrayList<Role> roles = new ArrayList();
-        roles.add(new DoctorRole());
-        return roles;
+    public ArrayList<Title> getTitle() {
+        ArrayList<Title> titles = new ArrayList();
+        titles.add(new DoctorTitle());
+        return titles;
     }
      
 }

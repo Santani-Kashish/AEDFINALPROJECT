@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  *
- * @author sreshtha
+ * @author patol
  */
 public class PatientDirectory {
    

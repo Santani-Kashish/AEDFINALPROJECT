@@ -7,9 +7,9 @@ package Business.WorkQueue;
 
 /**
  *
- * @author Kashish
+ * @author srikar
  */
-public class FundWorkRequest extends WorkRequest{
+public class FundWorkRequest extends Request {
     private String eventName;
     private String network;
     private String date;
@@ -17,7 +17,9 @@ public class FundWorkRequest extends WorkRequest{
     private String NGO;
     private String Fundstatus;
     private float funds;
-    
+
+
+
     public float getFunds() {
         return funds;
     }
@@ -42,11 +44,11 @@ public class FundWorkRequest extends WorkRequest{
         this.approval = approval;
     }
 
-    public String getNGO() {
+    public String getOrg() {
         return NGO;
     }
 
-    public void setNGO(String NGO) {
+    public void setOrg(String NGO) {
         this.NGO = NGO;
     }
 

@@ -16,7 +16,7 @@ import org.jfree.ui.ApplicationFrame;
 
 /**
  *
- * @author Kashish
+ * @author drrane
  */
 public class PatientPlasmaStatus extends ApplicationFrame{
       public PatientPlasmaStatus(String title,List<DonorStatistics> donorStatisticses) {
@@ -25,11 +25,11 @@ public class PatientPlasmaStatus extends ApplicationFrame{
 
     }
     
-    private static PieDataset createDataset(List<DonorStatistics> donorStatisticses) {
+    private static PieDataset createDataset(List<DonorStatistics> donorDetails) {
       DefaultPieDataset dataset = new DefaultPieDataset( );
-      for(int i= 0;i < donorStatisticses.size();i++)
+      for(int i= 0;i < donorDetails.size();i++)
       {
-         dataset.setValue(donorStatisticses.get(i).getBloodGroup(), donorStatisticses.get(i).getNoOfDonors());   
+         dataset.setValue(donorDetails.get(i).getBloodGroup(), donorDetails.get(i).getNoOfDonors());
       }
       
       
@@ -51,4 +51,6 @@ public class PatientPlasmaStatus extends ApplicationFrame{
       JFreeChart chart = createChart(createDataset(donorStatisticses),title );  
       return new ChartPanel( chart ); 
    }
+
+
 }
