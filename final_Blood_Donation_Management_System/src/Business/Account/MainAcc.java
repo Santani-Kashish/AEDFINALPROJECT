@@ -25,7 +25,6 @@ public class MainAcc {
     }
     
     
-    
     public String getUsername() {
         return username;
     }
@@ -66,7 +65,4 @@ public class MainAcc {
         return username;
     }
 
-    public Object getPerson() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

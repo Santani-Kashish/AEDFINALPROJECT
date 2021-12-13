@@ -6,17 +6,13 @@
 package userInterface.Committee;
 
 
-import Business.Account.Account;
-import Business.ECOSystem;
+import Business.Account.MainAcc;
+import Business.Environment;
 import Business.Enterprise.Enterprise;
 import Business.Organization.CommitteeAdminOrganization;
-
 import Business.Organization.Organization;
-import Business.Organization.PlasmaBankOrganization;
-
 import Business.WorkQueue.LabTestWorkRequest;
-import Business.WorkQueue.WorkRequest;
-import java.awt.CardLayout;
+import Business.WorkQueue.Request;
 import java.awt.Font;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -32,11 +28,11 @@ public class CommiteeWorkAreaJPanel extends javax.swing.JPanel {
      * Creates new form CommiteeWorkAreaJPanel
      */
     JPanel rightPanel;
-    Account account;
+    MainAcc account;
     Organization organization;
-    ECOSystem business;
+    Environment business;
     Enterprise enterprise;
-    public CommiteeWorkAreaJPanel(JPanel rightPanel, Account account, Organization organization, ECOSystem business) {
+    public CommiteeWorkAreaJPanel(JPanel rightPanel, MainAcc account, Organization organization, Environment business) {
         initComponents();
         this.rightPanel = rightPanel;
         this.account = account;
@@ -44,7 +40,7 @@ public class CommiteeWorkAreaJPanel extends javax.swing.JPanel {
         this.organization = (CommitteeAdminOrganization)organization;
         //refreshJButton.setVisible(false);
         populateTable();
-        tblWorkRequest.getTableHeader().setFont(new Font("Times New Roman" , Font.ITALIC,23));
+        tblWorkRequest.getTableHeader().setFont(new Font("Baskerville" , Font.ITALIC,20));
 
     }
    
@@ -53,7 +49,7 @@ public class CommiteeWorkAreaJPanel extends javax.swing.JPanel {
         
         model.setRowCount(0);
         
-        for(WorkRequest request : business.getWorkQueue().getWorkRequestList()){
+        for(Request request : business.getWorkQueue().getWorkRequestList()){
             Object[] row = new Object[6];
             row[0] = request;
             row[1] = request.getSender().getEmployee().getName();
@@ -158,12 +154,12 @@ public class CommiteeWorkAreaJPanel extends javax.swing.JPanel {
         int selectedRow = tblWorkRequest.getSelectedRow();
 
         if(tblWorkRequest.getRowCount()==0){
-            JOptionPane.showMessageDialog(null, "No rows present to select.", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Empty Table", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
         
         if (selectedRow < 0){
-            JOptionPane.showMessageDialog(null, "Please select a row.", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "No row Selected, Please choose a row.", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
         
@@ -171,13 +167,13 @@ public class CommiteeWorkAreaJPanel extends javax.swing.JPanel {
 
        if(!request.getStatus().equals("Available"))
        {
-            JOptionPane.showMessageDialog(null, "Plasma not available to proceed", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Blood Unavailable", "Warning", JOptionPane.WARNING_MESSAGE);
        }
        else
        {
            request.setStatus("Transport");
            request.setReceiver(account);
-           JOptionPane.showMessageDialog(null, "Request has been sent to transportation", "Warning", JOptionPane.WARNING_MESSAGE);
+           JOptionPane.showMessageDialog(null, "Rquested to Transport", "Warning", JOptionPane.WARNING_MESSAGE);
        }
         
     }//GEN-LAST:event_btnSendTransportReqActionPerformed
@@ -192,19 +188,19 @@ public class CommiteeWorkAreaJPanel extends javax.swing.JPanel {
         int selectedRow = tblWorkRequest.getSelectedRow();
 
         if(tblWorkRequest.getRowCount()==0){
-            JOptionPane.showMessageDialog(null, "No rows present to select.", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Empty Table", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
 
         if (selectedRow < 0){
-            JOptionPane.showMessageDialog(null, "Please select a row.", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "No row Selected, Please choose a row.", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
 
-        WorkRequest request = (WorkRequest)tblWorkRequest.getValueAt(selectedRow, 0);
+        Request request = (Request)tblWorkRequest.getValueAt(selectedRow, 0);
         request.setReceiver(account);
         request.setStatus("Processing");
-        JOptionPane.showMessageDialog(null, "Assigned successfully", "Warning", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Assigned", "Warning", JOptionPane.WARNING_MESSAGE);
 
         populateTable();
     }//GEN-LAST:event_btnAssignActionPerformed

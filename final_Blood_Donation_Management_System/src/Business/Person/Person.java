@@ -56,7 +56,7 @@ public class Person {
     }
 
     /**
-     * @param name the name to set
+    name the name to set
      */
     public void setName(String name) {
         this.name = name;
@@ -70,7 +70,7 @@ public class Person {
     }
 
     /**
-     * @param age the age to set
+    age the age to set
      */
     public void setAge(int age) {
         this.age = age;
@@ -84,7 +84,7 @@ public class Person {
     }
 
     /**
-     * @param gender the gender to set
+     gender the gender to set
      */
     public void setGender(String gender) {
         this.gender = gender;
@@ -98,7 +98,7 @@ public class Person {
     }
 
     /**
-     * @param bloodGroup the bloodGroup to set
+     bloodGroup the bloodGroup to set
      */
     public void setBloodGroup(String bloodGroup) {
         this.bloodGroup = bloodGroup;
@@ -112,7 +112,7 @@ public class Person {
     }
 
     /**
-     * @param contactNum the contactNum to set
+     contactNum the contactNum to set
      */
     public void setContactNum(String contactNum) {
         this.contactNum = contactNum;
@@ -126,7 +126,7 @@ public class Person {
     }
 
     /**
-     * @param address the address to set
+   address the address to set
      */
     public void setAddress(String address) {
         this.address = address;
@@ -140,7 +140,7 @@ public class Person {
     }
 
     /**
-     * @param sign the sign to set
+     sign the sign to set
      */
     public void setSign(String sign) {
         this.sign = sign;

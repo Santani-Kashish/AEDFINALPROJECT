@@ -14,7 +14,7 @@ import userInterface.transport.TransportationAdminWorkAreaJPanel;
 
 /**
  *
- * @author drrane
+ * @author manita
  */
 public class DeliveryTitle extends Title {
       @Override

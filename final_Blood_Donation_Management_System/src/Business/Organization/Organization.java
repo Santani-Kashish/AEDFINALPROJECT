@@ -11,12 +11,13 @@ import Business.Person.DonorDirectory;
 import Business.Person.PatientDirectory;
 import Business.Person.RecipientDirectory;
 import Business.Person.VisitorDirectory;
-
+import Business.Role.AdminTitle;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  *
- * @author TEJAL
+ * @author manita
  */
 public abstract class Organization {
 
@@ -62,6 +63,10 @@ public abstract class Organization {
     public static void setCounter(int counter) {
         Organization.counter = counter;
     }
+
+    
+
+    
     
     public enum Type{
         Doctor("Doctor Organization "),PublicityTeamAdmin("PublicityTeam Admin Organization"),

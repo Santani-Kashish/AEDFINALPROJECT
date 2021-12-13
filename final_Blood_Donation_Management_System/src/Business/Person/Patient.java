@@ -7,7 +7,7 @@ package Business.Person;
 
 /**
  *
- * @author patol
+ * @author manita
  */
 public class Patient extends Person{
      boolean plasmaRequired;

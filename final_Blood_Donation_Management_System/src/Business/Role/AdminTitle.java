@@ -13,7 +13,7 @@ import userInterface.clinicadmin.HospitalAdminWorkArea;
 
 /**
  *
- * @author srikar
+ * @author sreshtha
  */
 public class AdminTitle extends Title {
 

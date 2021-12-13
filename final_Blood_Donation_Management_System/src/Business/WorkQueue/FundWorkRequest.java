@@ -7,7 +7,7 @@ package Business.WorkQueue;
 
 /**
  *
- * @author srikar
+ * @author kashish
  */
 public class FundWorkRequest extends Request {
     private String eventName;

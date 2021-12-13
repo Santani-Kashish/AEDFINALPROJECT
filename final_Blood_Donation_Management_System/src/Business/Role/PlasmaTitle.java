@@ -13,18 +13,18 @@ import Business.Organization.Organization;
 import javax.management.relation.Role;
 import javax.swing.JPanel;
 
-import userInterface.bloodbank.ManagePlasmaJPanel;
+import userInterface.bloodbank.ManageBloodJPanel;
 
 /**
  *
- * @author patol
+ * @author manita
  */
 public class PlasmaTitle extends Title {
 
 
       @Override
     public JPanel createPanel(JPanel rightPanel, MainAcc mainAcc, Organization organization, Enterprise enterprise, Environment business) {
-        return new ManagePlasmaJPanel(rightPanel, mainAcc,organization,enterprise,business);
+        return new ManageBloodJPanel(rightPanel, mainAcc,organization,enterprise,business);
     }
 
     @Override

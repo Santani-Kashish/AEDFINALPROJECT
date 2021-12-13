@@ -5,7 +5,7 @@
  */
 package userInterface.AdminWorkSpace;
 
-import Business.ECOSystem;
+import Business.Environment;
 import Business.Network.Network;
 import Business.RegularExpressionCheck;
 import java.awt.CardLayout;
@@ -22,18 +22,17 @@ import javax.swing.table.DefaultTableModel;
 public class ManageCitiesJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
-    private ECOSystem system;
+    private Environment system;
 
     /**
      * Creates new form ManageCitiesJPanel
      */
-    public ManageCitiesJPanel(JPanel rightPanel, ECOSystem system) {
+    public ManageCitiesJPanel(JPanel rightPanel, Environment system) {
         initComponents();
         this.userProcessContainer = rightPanel;
         this.system = system;
         populateNetworkTable();
-        networkJTable.getTableHeader().setFont(new Font("Times New Roman", Font.ITALIC, 23));
-
+        networkJTable.getTableHeader().setFont(new Font("Baskerville", Font.ITALIC, 20));
     }
 
     private void populateNetworkTable() {
@@ -165,11 +164,11 @@ public class ManageCitiesJPanel extends javax.swing.JPanel {
         String name = textfieldCity.getText();
 
         if (name.equals("")) {
-            JOptionPane.showMessageDialog(null, "City name can not by empty.");
+            JOptionPane.showMessageDialog(null, "Empty Field Error");
             return;
         } else {
             if (!RegularExpressionCheck.findRE(name)) {
-                JOptionPane.showMessageDialog(null, "Enter valid city name.");
+                JOptionPane.showMessageDialog(null, "Invalid Name");
                 return;
             }
         }
@@ -186,7 +185,7 @@ public class ManageCitiesJPanel extends javax.swing.JPanel {
             textfieldCity.setText("");
             populateNetworkTable();
         } else {
-            JOptionPane.showMessageDialog(null, "City already exists");
+            JOptionPane.showMessageDialog(null, "Pre-existing City Name");
             textfieldCity.setText("");
         }
     }//GEN-LAST:event_btnSubmitActionPerformed

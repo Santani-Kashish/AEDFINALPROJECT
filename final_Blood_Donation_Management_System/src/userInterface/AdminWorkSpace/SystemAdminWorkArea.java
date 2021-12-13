@@ -5,29 +5,16 @@
  */
 package userInterface.AdminWorkSpace;
 
-import Business.ECOSystem;
 import Business.Enterprise.Enterprise;
+import Business.Environment;
 import Business.Network.Network;
 import Business.Organization.Organization;
-import Business.Person.Donor;
-import Business.Person.Recipient;
-import Business.Person.Visitor;
-import Business.Person.VisitorDirectory;
-import Business.RegularExpressionCheck;
 import java.awt.CardLayout;
-import java.awt.Frame;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
-import org.jfree.data.general.DefaultPieDataset;
 
 /**
  *
@@ -36,9 +23,9 @@ import org.jfree.data.general.DefaultPieDataset;
 public class SystemAdminWorkArea extends javax.swing.JPanel {
 
     JPanel rightPanel;
-    ECOSystem system;
+    Environment system;
 
-    public SystemAdminWorkArea(JPanel rightPanel, ECOSystem eco) {
+    public SystemAdminWorkArea(JPanel rightPanel, Environment eco) {
         initComponents();
         this.rightPanel = rightPanel;
         this.system = eco;
@@ -159,7 +146,7 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 21, Short.MAX_VALUE))
+                .addGap(0, 36, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -263,7 +250,7 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
         boolean flag = false;
 
         if (size == 0) {
-            JOptionPane.showMessageDialog(null, "There are no networks. Create Network first.");
+            JOptionPane.showMessageDialog(null, "Network doesn't exists");
             return;
         } else if (size > 0) {
             for (int i = 0; i < size; i++) {
@@ -278,13 +265,13 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
             CardLayout layout = (CardLayout) rightPanel.getLayout();
             layout.next(rightPanel);
         } else {
-            JOptionPane.showMessageDialog(null, "There is no enterprise. Create enterprise first.");
+            JOptionPane.showMessageDialog(null, "Enterprise doesn't exists");
         }
     }//GEN-LAST:event_btnManageAdminActionPerformed
 
     private void btnManageEnterpriseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageEnterpriseActionPerformed
         if (system.getNetworkList().size() == 0) {
-            JOptionPane.showMessageDialog(null, "There are no networks. Create Network first.");
+            JOptionPane.showMessageDialog(null, "Network doesn't exists");
             return;
         }
         ManageEnterpriseJPanel manageEnterprise = new ManageEnterpriseJPanel(rightPanel, system);

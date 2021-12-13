@@ -14,7 +14,7 @@ import userInterface.AwarenessCamps.PublicAwarness;
 
 /**
  *
- * @author srikar
+ * @author sreshtha
  */
 public class AwarenessTitle extends Title {
     @Override

@@ -14,7 +14,7 @@ import userInterface.DoctorWorkArea.PatientTestRequestJPanel;
 
 /**
  *
- * @author srikar
+ * @author manita
  */
 public class DoctorTitle extends Title {
     @Override

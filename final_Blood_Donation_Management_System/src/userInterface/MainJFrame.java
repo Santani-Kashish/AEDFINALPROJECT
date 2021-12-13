@@ -5,16 +5,15 @@
  */
 package userInterface;
 
-import Business.Account.Account;
-import Business.DB4OUtil.DB4OUtil;
-import Business.ECOSystem;
+import Business.Account.MainAcc;
+import Business.DB4OUtil.DbInstance;
+import Business.Environment;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import userInterface.HospitalVisitors.NewVisitorSignUpJPanel;
 
 /**
  *
@@ -25,8 +24,8 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrame
      */
-    private ECOSystem system;
-    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    private Environment system;
+    private DbInstance dB4OUtil = DbInstance.getInstance().getInstance();
 
     public MainJFrame() {
        
@@ -60,6 +59,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         rightPanel = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new javax.swing.OverlayLayout(getContentPane()));
@@ -70,12 +70,12 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Email  :");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 100, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 100, -1));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 23)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Password :");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, 110, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 110, -1));
 
         textUserName.setBackground(new java.awt.Color(102, 0, 0));
         textUserName.setForeground(new java.awt.Color(204, 204, 204));
@@ -85,7 +85,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 textUserNameActionPerformed(evt);
             }
         });
-        jPanel1.add(textUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 161, 33));
+        jPanel1.add(textUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 161, 33));
 
         btnLogin.setBackground(new java.awt.Color(51, 0, 0));
         btnLogin.setFont(new java.awt.Font("Times New Roman", 1, 23)); // NOI18N
@@ -99,7 +99,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 btnLoginActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 490, 161, 46));
+        jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 490, 161, 46));
 
         btnLogout.setBackground(new java.awt.Color(120, 0, 0));
         btnLogout.setFont(new java.awt.Font("Times New Roman", 1, 23)); // NOI18N
@@ -112,39 +112,37 @@ public class MainJFrame extends javax.swing.JFrame {
                 btnLogoutActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 560, 161, 44));
+        jPanel1.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 560, 161, 44));
 
         textPassword.setBackground(new java.awt.Color(102, 0, 0));
         textPassword.setForeground(new java.awt.Color(204, 204, 204));
         textPassword.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        jPanel1.add(textPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, 167, 33));
+        jPanel1.add(textPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 167, 33));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Welcome !");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Login to your account");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 170, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 170, -1));
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon("/Users/manitapasi/Downloads/Untitled-removebg-preview.png")); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\kashi\\Downloads\\Untitled-removebg-preview.png")); // NOI18N
         jLabel6.setText("jLabel6");
-        jLabel6.setMaximumSize(new java.awt.Dimension(4, 4));
-        jLabel6.setMinimumSize(new java.awt.Dimension(4, 4));
-        jLabel6.setPreferredSize(new java.awt.Dimension(5, 5));
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 80, 90));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 80, 80));
 
         jSplitPane1.setLeftComponent(jPanel1);
 
         rightPanel.setBackground(new java.awt.Color(102, 0, 0));
         rightPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         rightPanel.setLayout(new java.awt.CardLayout());
-
-        jLabel4.setIcon(new javax.swing.ImageIcon("/Users/manitapasi/Desktop/d1-removebg-preview.png")); // NOI18N
         rightPanel.add(jLabel4, "card2");
+
+        jLabel8.setText("jLabel8");
+        rightPanel.add(jLabel8, "card3");
 
         jSplitPane1.setRightComponent(rightPanel);
 
@@ -176,7 +174,7 @@ public class MainJFrame extends javax.swing.JFrame {
         String password = String.valueOf(textPassword.getPassword());
         //comboBox.getSelectedItem();
 
-        Account userAccount = system.getUserAccountDirectory().authenticateUser(username, password);
+        MainAcc userAccount = system.getData().authenticateUser(username, password);
 
         Enterprise inEnterprise = null;
         Organization inOrganization = null;
@@ -186,11 +184,11 @@ public class MainJFrame extends javax.swing.JFrame {
             for (Network network : system.getNetworkList()) {
                 //Step 2.a: check against each enterprise
                 for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
-                    userAccount = enterprise.getUserAccountDirectory().authenticateUser(username, password);
+                    userAccount = enterprise.getData().authenticateUser(username, password);
                     if (userAccount == null) {
                         //Step 3:check against each organization for each enterprise
                         for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
-                            userAccount = organization.getUserAccountDirectory().authenticateUser(username, password);
+                            userAccount = organization.getData().authenticateUser(username, password);
                             if (userAccount != null) {
                                 inEnterprise = enterprise;
                                 inOrganization = organization;
@@ -213,11 +211,11 @@ public class MainJFrame extends javax.swing.JFrame {
         }
 
         if (userAccount == null) {
-            JOptionPane.showMessageDialog(null, "Wrong credentials");
+            JOptionPane.showMessageDialog(null, "Invalid EmailID or Password");
             return;
         } else {
             CardLayout layout = (CardLayout) rightPanel.getLayout();
-            rightPanel.add("workArea", userAccount.getRole().createWorkArea(rightPanel, userAccount, inOrganization, inEnterprise, system));
+            rightPanel.add("workArea", userAccount.getRole().createPanel(rightPanel, userAccount, inOrganization, inEnterprise, system));
             layout.next(rightPanel);
         }
 
@@ -275,6 +273,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JPanel rightPanel;

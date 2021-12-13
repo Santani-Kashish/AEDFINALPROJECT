@@ -10,16 +10,9 @@ import Business.Person.Visitor;
 import Business.Person.VisitorDirectory;
 import Business.RegularExpressionCheck;
 import java.awt.CardLayout;
-import java.util.Properties;
-import javax.mail.Message;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import userInterface.HospitalVisitors.DonorRegistrationForm;
 
 /**
  *
@@ -124,7 +117,7 @@ public class PublicAwarness extends javax.swing.JPanel {
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
         if(emailTxt.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Please enter email");
+            JOptionPane.showMessageDialog(null, "Empty Field Error");
             return;
         }
         if(!emailTxt.getText().equals("")){
@@ -132,50 +125,17 @@ public class PublicAwarness extends javax.swing.JPanel {
 
             for(Visitor v: vd.getVisitorList()){
                 if(v.getEmail().equals(emailTxt.getText())){
-                   JOptionPane.showMessageDialog(null, "Email already exists!");
+                   JOptionPane.showMessageDialog(null, "Pre-existing EmailID");
                     return; 
                 }
             }
         boolean validity= RegularExpressionCheck.isValidEmailAddress(emailTxt.getText());
         if(validity){
              final String to = emailTxt.getText();
-           String from = "ranedipesh95@gmail.com"; 
-            String host = "smtp.gmail.com";
-            String user="ranedipesh95@gmail.com";
-            String pass = "Gizmodo@2020";
-            Properties properties = System.getProperties();  
-            properties.setProperty("mail.smtp.host", host); properties.put("mail.smtp.starttls.required", "true");
-            properties.put("mail.smtp.starttls.enable", "true");
-            properties.put("mail.smtp.host",host);  
-            properties.put("mail.smtp.port", "587");  
-            properties.put("mail.smtp.auth", "true");  
-            boolean sessionDebug=false;
-            Session session;
-            session = Session.getDefaultInstance(properties,  null);
-            session.setDebug(sessionDebug);
-            try{
-            MimeMessage message = new MimeMessage(session);  
-            message.setFrom(new InternetAddress(from));  
-            message.setRecipient(Message.RecipientType.TO,new InternetAddress(to));  
-            InternetAddress address;
-            address = new InternetAddress(to);
-            message.setSubject("Awareness Camp");  
-            message.setText(jTextArea1.getText() + "\n" + "Please visit awareness camp in "+"Boston");  
-            //message.setFileName(from);
-            Transport transport = session.getTransport("smtp");
-            transport.connect(host,user,pass);
-            transport.sendMessage(message, message.getAllRecipients());
-            transport.close();
-            JOptionPane.showMessageDialog(null, "Please check your email for further details!");
-            }
-            catch(Exception e){
-                System.out.println(e);
-                JOptionPane.showMessageDialog(null, "Error!");
-            }
         }
         
         else{
-            JOptionPane.showMessageDialog(null, "Please re enter email in correct format!");
+            JOptionPane.showMessageDialog(null, "Invalid Format");
         }  
      }
     }//GEN-LAST:event_btnSubmitActionPerformed
