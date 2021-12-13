@@ -5,15 +5,11 @@
  */
 package userInterface.DoctorWorkArea;
 
-import Business.Account.Account;
-import Business.ECOSystem;
-
+import Business.Account.MainAcc;
+import Business.Environment;
 import Business.Enterprise.Enterprise;
-
 import Business.Organization.Organization;
-
 import Business.Person.Patient;
-
 import Business.WorkQueue.LabTestWorkRequest;
 import java.awt.CardLayout;
 import java.util.ArrayList;
@@ -32,11 +28,11 @@ public class PatientTestRequestJPanel extends javax.swing.JPanel {
      */
     JPanel container;
     Enterprise enterprise;
-    private Account account;
-    ECOSystem business;
+    private MainAcc account;
+    Environment business;
     String patient = null;
 
-    public PatientTestRequestJPanel(JPanel container, Enterprise enterprise, Account account, ECOSystem business) {
+    public PatientTestRequestJPanel(JPanel container, Enterprise enterprise, MainAcc account, Environment business) {
         initComponents();
         this.container = container;
         this.enterprise = enterprise;
@@ -154,15 +150,7 @@ public class PatientTestRequestJPanel extends javax.swing.JPanel {
 
     void populateDropdown() {
         for (Organization o : enterprise.getOrganizationDirectory().getOrganizationList()) {
-            //get patients from where they are being stored
-//            for (Donor d : o.getDonorDirectory().getDonorList()) {
-//                PatientName.addItem(d.getEmailAdd().trim());
-//                patient = "donor";
-//            }
-//            for (Recipient r : o.getRecipientDirectory().getRecipientList()) {
-//                PatientName.addItem(r.getEmailAdd().trim());
-//                patient = "recipient";
-//            }
+ 
         if(enterprise.getPatientDirectory()!= null)
         {
             for (Patient d : o.getPatientDirectory().getPatientsList()) {
@@ -178,22 +166,7 @@ public class PatientTestRequestJPanel extends javax.swing.JPanel {
    
     private void btnResultStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResultStatusActionPerformed
         List<String> tests = new ArrayList<>();
-//        if (blood.isSelected()) {
-//            tests.add("Yes");
-//        } else {
-//            tests.add("No");
-//        }
-//        if (radio.isSelected()) {
-//            tests.add("Yes");
-//        } else {
-//            tests.add("No");
-//        }
-//        if (xray.isSelected()) {
-//            tests.add("Yes");
-//        } else {
-//            tests.add("No");
-//        }
-        //String patient1 = populateDropdown();
+
         DoctorActivityJPanel patientTestRequestJPanel = new DoctorActivityJPanel(container, enterprise, account, (String) PatientName.getItemAt(PatientName.getSelectedIndex()), tests, patient);
         container.add("DoctorActivityJPanel", patientTestRequestJPanel);
         CardLayout layout = (CardLayout) container.getLayout();
@@ -202,12 +175,12 @@ public class PatientTestRequestJPanel extends javax.swing.JPanel {
 
     private void btnAdviceTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdviceTestActionPerformed
       if (jRadiobtnYes.isSelected() == false && jRadioBtnNo.isSelected() == false) {
-            JOptionPane.showMessageDialog(null, "Please selection any one option!");
+            JOptionPane.showMessageDialog(null, "Select an Option");
             return;
         }
         if (jRadiobtnYes.isSelected()) {
             LabTestWorkRequest request = new LabTestWorkRequest();
-            request.setMessage("Require plasma sample");
+            request.setMessage("Blood Sample Required");
             request.setSender(account);
             request.setStatus("Sent");
            
@@ -217,26 +190,16 @@ public class PatientTestRequestJPanel extends javax.swing.JPanel {
            request.setPatientName(data[0]);
            request.setPatientBloodGroup(data[1]);
 
-//            Organization org = null;
-//            
-//            for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
-//
-//                if (organization instanceof CommitteeAdminOrganization) {
-//
-//                    org = organization;
-//                    break;
-//                }
-//            }
             
             if (business != null) {
                 business.getWorkQueue().getWorkRequestList().add(request);
                 account.getWorkQueue().getWorkRequestList().add(request);
             }
-            JOptionPane.showMessageDialog(null, "Request for plasma has been sent!");
+            JOptionPane.showMessageDialog(null, "Blood Request has been sent");
         }
         else
         {
-            JOptionPane.showMessageDialog(null, "No Plasma Required!");
+            JOptionPane.showMessageDialog(null, "No blood tranfusion required");
         }
     }//GEN-LAST:event_btnAdviceTestActionPerformed
 

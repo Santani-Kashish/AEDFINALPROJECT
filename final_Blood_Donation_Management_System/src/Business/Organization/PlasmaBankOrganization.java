@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author patol
+ * @author sreshtha
  */
 public class PlasmaBankOrganization extends Organization{
 

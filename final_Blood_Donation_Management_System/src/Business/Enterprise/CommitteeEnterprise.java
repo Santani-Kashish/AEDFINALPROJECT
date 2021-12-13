@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author patol
+ * @author manita
  */
 public class CommitteeEnterprise extends Enterprise{
 

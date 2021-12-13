@@ -16,7 +16,7 @@ import org.jfree.ui.ApplicationFrame;
 
 /**
  *
- * @author drrane
+ * @author sreshtha
  */
 public class PatientPlasmaStatus extends ApplicationFrame{
       public PatientPlasmaStatus(String title,List<DonorStatistics> donorStatisticses) {
@@ -38,9 +38,9 @@ public class PatientPlasmaStatus extends ApplicationFrame{
    
    private  JFreeChart createChart( PieDataset dataset,String title ) {
       JFreeChart chart = ChartFactory.createPieChart(      
-         title,   // chart title 
-         dataset,          // data    
-         true,             // include legend   
+         title,  
+         dataset,           
+         true,              
          true, 
          false);
 

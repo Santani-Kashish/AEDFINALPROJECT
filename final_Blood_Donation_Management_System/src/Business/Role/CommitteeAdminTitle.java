@@ -15,7 +15,7 @@ import userInterface.Committee.CommiteeWorkAreaJPanel;
 
 /**
  *
- * @author patol
+ * @author sreshtha
  */
 public class CommitteeAdminTitle extends Title {
       @Override

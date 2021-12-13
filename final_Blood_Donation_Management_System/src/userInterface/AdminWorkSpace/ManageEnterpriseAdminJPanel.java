@@ -5,15 +5,15 @@
  */
 package userInterface.AdminWorkSpace;
 
-import Business.Account.Account;
-import Business.ECOSystem;
-import Business.Employee.Employee;
+import Business.Account.MainAcc;
+import Business.Environment;
+import Business.Employee.PersonEntity;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.RegularExpressionCheck;
 import java.awt.CardLayout;
 import java.awt.Component;
-import Business.Role.AdminRole;
+import Business.Role.AdminTitle;
 import java.awt.Font;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -29,9 +29,9 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
      * Creates new form NewJPanel2
      */
     private JPanel userProcessContainer;
-    private ECOSystem system;
+    private Environment system;
 
-    public ManageEnterpriseAdminJPanel(JPanel userProcessContainer, ECOSystem system) {
+    public ManageEnterpriseAdminJPanel(JPanel userProcessContainer, Environment system) {
         initComponents();
 
         this.userProcessContainer = userProcessContainer;
@@ -39,7 +39,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
 
         populateTable();
         populateNetworkComboBox();
-        enterpriseJTable.getTableHeader().setFont(new Font("Times New Roman", Font.ITALIC, 23));
+        enterpriseJTable.getTableHeader().setFont(new Font("Baskerville", Font.ITALIC, 20));
     }
 
     private void populateTable() {
@@ -48,7 +48,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         for (Network network : system.getNetworkList()) {
             for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
-                for (Account userAccount : enterprise.getUserAccountDirectory().getUserAccountList()) {
+                for (MainAcc userAccount : enterprise.getData().getUserAccountList()) {
                     Object[] row = new Object[3];
                     row[0] = enterprise.getName();
                     row[1] = network.getName();
@@ -250,28 +250,28 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         String userName = emailId;
 
         if (password.equals("") && emailId.equals("")) {
-            JOptionPane.showMessageDialog(null, "Please enter values in all the fields");
+            JOptionPane.showMessageDialog(null, "All Fields are Required");
             return;
         }
 
         if (!RegularExpressionCheck.isValidEmailAddress(emailId)) {
-            JOptionPane.showMessageDialog(null, " Invalid Username."
-                    + "Username should be an email-ID with '_' and '@' as the only allowed special characters but should not start with '_'");
+            JOptionPane.showMessageDialog(null, "Invalid EmailID"
+                    + "EmailID can only consist of letters, numbers '_', '.' and '@' but should not start with '_'");
             return;
         }
 
         if (!RegularExpressionCheck.isValidPassword(password)) {
-            JOptionPane.showMessageDialog(null, " Invalid Password."
-                    + "Password should contain atleast one lower case, one upper case, one digit, one special character & length should be minimum 6 to max 16 letters");
+            JOptionPane.showMessageDialog(null, "Invalid Format for Password"
+                    + "Password length should be between 6 & 15, and should consist of at least one uppercase, one lowercase,  one didgit and one special character");
             return;
         }
 
-        Employee employee = enterprise.getEmployeeDirectory().createEmployee(emailId);
+        PersonEntity employee = enterprise.getEmpDetails().searchEmployee(emailId);
 
-        Account account = enterprise.getUserAccountDirectory().createUserAccount(userName, password, employee, new AdminRole());
+        MainAcc account = enterprise.getData().createAccount(userName, password, employee, new AdminTitle());
 
         if (account == null) {
-            JOptionPane.showMessageDialog(null, "User already exists, please try with another username.");
+            JOptionPane.showMessageDialog(null, "Pre-existing EmailID");
             clearFields();
             return;
         }

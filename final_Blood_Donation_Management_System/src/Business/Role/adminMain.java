@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author TEJAL 
+ * @author manita
 */
 public class adminMain extends Title {
     @Override

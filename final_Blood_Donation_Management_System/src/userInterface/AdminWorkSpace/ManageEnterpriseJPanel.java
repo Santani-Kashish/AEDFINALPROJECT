@@ -5,7 +5,7 @@
  */
 package userInterface.AdminWorkSpace;
 
-import Business.ECOSystem;
+import Business.Environment;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.RegularExpressionCheck;
@@ -27,9 +27,9 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
      * Creates new form ManageEnterpriseJPanel
      */
     private JPanel userProcessContainer;
-    private ECOSystem system;
+    private Environment system;
 
-    public ManageEnterpriseJPanel(JPanel userProcessContainer, ECOSystem system) {
+    public ManageEnterpriseJPanel(JPanel userProcessContainer, Environment system) {
         initComponents();
 
         this.userProcessContainer = userProcessContainer;
@@ -37,7 +37,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
 
         populateTable();
         populateComboBox();
-        JTableEnterprise.getTableHeader().setFont(new Font("Times New Roman", Font.ITALIC, 23));
+        JTableEnterprise.getTableHeader().setFont(new Font("Baskerville", Font.ITALIC, 20));
     }
 
     private void populateTable() {
@@ -144,7 +144,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
             JTableEnterprise.getColumnModel().getColumn(2).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 20, 940, 120));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 940, 120));
 
         JComboBoxEnterpriseType.setFont(new java.awt.Font("Times New Roman", 1, 23)); // NOI18N
         JComboBoxEnterpriseType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -216,18 +216,18 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         Enterprise.EnterpriseType type = (Enterprise.EnterpriseType) JComboBoxEnterpriseType.getSelectedItem();
 
         if (network == null || type == null) {
-            JOptionPane.showMessageDialog(null, "Invalid Input!");
+            JOptionPane.showMessageDialog(null, "Empty Field Error");
             return;
         }
 
         String name = JTextFieldName.getText();
 
         if (name.equals("")) {
-            JOptionPane.showMessageDialog(null, "Enterprise name can not by empty.");
+            JOptionPane.showMessageDialog(null, "Empty Field Error");
             return;
         } else {
             if (!RegularExpressionCheck.findRE(name)) {
-                JOptionPane.showMessageDialog(null, "Enter valid Enterprise name.");
+                JOptionPane.showMessageDialog(null, "Invalid Name.");
                 return;
             }
         }
@@ -245,7 +245,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
             JTextFieldName.setText("");
             populateTable();
         } else {
-            JOptionPane.showMessageDialog(null, "Enterprise already exists");
+            JOptionPane.showMessageDialog(null, "Pre-existing Enterprise");
         }
 
     }//GEN-LAST:event_btnSubmitActionPerformed

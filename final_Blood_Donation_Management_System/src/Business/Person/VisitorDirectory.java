@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author TEJAL
+ * @author kashish
  */
 public class VisitorDirectory {
     private ArrayList<Visitor> visitorList;

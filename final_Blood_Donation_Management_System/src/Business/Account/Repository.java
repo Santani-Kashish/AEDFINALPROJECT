@@ -6,7 +6,6 @@
 package Business.Account;
 
 import java.util.ArrayList;
-
 import Business.Employee.PersonEntity;
 import Business.Role.Title;
 
@@ -42,13 +41,13 @@ public class Repository {
     return null;
   }
 
-  public MainAcc authenticateUser(PersonEntity person) {
-    for (MainAcc ua : mainAccList)
-      if (ua.getPerson().equals(person)) {
-        return ua;
-      }
-    return null;
-  }
+//  public MainAcc authenticateUser(PersonEntity person) {
+//    for (MainAcc ua : mainAccList)
+//      if (ua.getPerson().equals(person)) {
+//        return ua;
+//      }
+//    return null;
+//  }
 
 
 

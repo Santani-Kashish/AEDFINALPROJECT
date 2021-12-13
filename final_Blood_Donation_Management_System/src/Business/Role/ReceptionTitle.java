@@ -10,12 +10,11 @@ import Business.Environment;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import javax.swing.JPanel;
-
-import userInterface.reception.PatientRegistrationForm;
+import userInterface.ReceptionWorkArea.PatientRegistrationForm;
 
 /**
  *
- * @author patol
+ * @author manita
  */
 public class ReceptionTitle extends Title {
     @Override

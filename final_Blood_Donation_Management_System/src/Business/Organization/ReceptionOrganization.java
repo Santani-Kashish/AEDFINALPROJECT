@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author drrane
+ * @author kashish
  */
 public class ReceptionOrganization extends Organization{
 

@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author srikar
+ * @author sreshtha
  */
 public class Donor extends Person{
     
@@ -42,7 +42,7 @@ public class Donor extends Person{
     }
 
     /**
-     * @param pocName the pocName to set
+     pocName the pocName to set
      */
     public void setPocName(String pocName) {
         this.pocName = pocName;
@@ -56,7 +56,7 @@ public class Donor extends Person{
     }
 
     /**
-     * @param pocContact the pocContact to set
+    pocContact the pocContact to set
      */
     public void setPocContact(String pocContact) {
         this.pocContact = pocContact;

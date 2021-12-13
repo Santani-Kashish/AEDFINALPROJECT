@@ -5,17 +5,14 @@
  */
 package userInterface.DoctorWorkArea;
 
-import Business.Account.Account;
+import Business.Account.MainAcc;
 import Business.Enterprise.Enterprise;
-import Business.Organization.Organization;
-import Business.Person.Recipient;
 import Business.WorkQueue.LabTestWorkRequest;
-import Business.WorkQueue.WorkRequest;
+import Business.WorkQueue.Request;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.Font;
 import java.util.*;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -31,11 +28,11 @@ public class DoctorActivityJPanel extends javax.swing.JPanel {
     
     private JPanel rightPanel;
     private Enterprise enterprise;
-    private Account account;
+    private MainAcc account;
     String patientName;
     List<String> tests;
     String patient;
-    public DoctorActivityJPanel(JPanel rightPanel,Enterprise enterprise,Account account, String patientName, List<String> tests, String patient) {
+    public DoctorActivityJPanel(JPanel rightPanel,Enterprise enterprise,MainAcc account, String patientName, List<String> tests, String patient) {
         initComponents();
         this.rightPanel = rightPanel;
         this.patientName= patientName;
@@ -46,38 +43,18 @@ public class DoctorActivityJPanel extends javax.swing.JPanel {
         valueLabel.setText(enterprise.getName());
         this.account = account;
         populateRequestTable();
-        workRequestJTable.getTableHeader().setFont(new Font("Times New Roman" , Font.ITALIC,23));
+        workRequestJTable.getTableHeader().setFont(new Font("Baskerville" , Font.ITALIC,20));
     }
 
     
     public void populateRequestTable(){
         DefaultTableModel model = (DefaultTableModel) workRequestJTable.getModel();
-        /*
-        model.setRowCount(0);
-        LabTestWorkRequest r = new LabTestWorkRequest();
-        for (WorkRequest request : account.getWorkQueue().getWorkRequestList()){
-            Object[] row = new Object[4];
-            row[0] = patientName;
-            row[1] = request.getReceiver();
-            row[2] = request.getStatus();
-            String result = ((LabTestWorkRequest) request).getTestResult();
-            row[3] = result == null ? "Waiting" : result;
-            model.addRow(row);
-        }
-        */
+       
         
         model.setRowCount(0);
-        for (WorkRequest request : account.getWorkQueue().getWorkRequestList()){
+        for (Request request : account.getWorkQueue().getWorkRequestList()){
             Object[] row = new Object[4];
-            /*if(((LabTestWorkRequest) request).getPatientName().equals(patientName))
-            {
-            row[0] = ((LabTestWorkRequest) request).getPatientName();
-            row[1] = ((LabTestWorkRequest) request).getReceiver();
-            row[2] = ((LabTestWorkRequest) request).getStatus();
-            String result = ((LabTestWorkRequest) request).getTestResult();
-            row[3] = result == null ? "Waiting" : result;
-            model.addRow(row);
-            }*/
+          
             
             row[0] = ((LabTestWorkRequest) request).getPatientName();
             row[1] = ((LabTestWorkRequest) request).getReceiver();
@@ -187,7 +164,6 @@ public class DoctorActivityJPanel extends javax.swing.JPanel {
         Component[] componentArray = rightPanel.getComponents();
         Component component = componentArray[componentArray.length - 1];
         PatientTestRequestJPanel dwjp = (PatientTestRequestJPanel) component;
-       //dwjp.populateRequestTable();
         CardLayout layout = (CardLayout)rightPanel.getLayout();
         layout.previous(rightPanel);
     }//GEN-LAST:event_btnBackActionPerformed

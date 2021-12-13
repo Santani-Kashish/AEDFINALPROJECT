@@ -7,7 +7,7 @@ package userInterface.DoctorWorkArea;
 import Business.Enterprise.Enterprise;
 import Business.Enterprise.PlasmaBankEnterprise;
 import Business.Organization.Organization;
-import Business.Account.Account;
+import Business.Account.MainAcc;
 import Business.WorkQueue.LabTestWorkRequest;
 import java.awt.CardLayout;
 import java.awt.Component;
@@ -21,11 +21,11 @@ public class RequestLabTestJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
     private Enterprise enterprise;
-    private Account userAccount;
+    private MainAcc userAccount;
     /**
      * Creates new form RequestLabTestJPanel
      */
-    public RequestLabTestJPanel(JPanel userProcessContainer, Account account, Enterprise enterprise) {
+    public RequestLabTestJPanel(JPanel userProcessContainer, MainAcc account, Enterprise enterprise) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;
@@ -114,7 +114,6 @@ public class RequestLabTestJPanel extends javax.swing.JPanel {
             }
         }
         if (org!=null){
-            //org.getWorkQueue().getWorkRequestList().add(request);
             userAccount.getWorkQueue().getWorkRequestList().add(request);
         }
         

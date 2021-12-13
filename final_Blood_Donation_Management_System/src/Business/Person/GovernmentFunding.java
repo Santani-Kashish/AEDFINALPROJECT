@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  *
- * @author srikar
+ * @author kashish
  */
 public class GovernmentFunding {
     String networkName;

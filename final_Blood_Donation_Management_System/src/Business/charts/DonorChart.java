@@ -11,10 +11,7 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.general.PieDataset;
 import org.jfree.ui.ApplicationFrame;
-
 import java.util.List;
-
-import javax.swing.*;
 
 /**
  * This class is used to create a pie chart of the number of donors in the system.

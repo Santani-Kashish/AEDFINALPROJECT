@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  *
- * @author srikar
+ * @author sreshtha
  */
 public class RecipientDirectory {
     

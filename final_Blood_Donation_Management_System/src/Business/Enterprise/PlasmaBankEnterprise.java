@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author srikar
+ * @author sreshtha
  */
 public abstract class PlasmaBankEnterprise extends Enterprise{
 

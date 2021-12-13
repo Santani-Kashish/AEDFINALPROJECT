@@ -10,7 +10,6 @@ import Business.Environment;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import javax.swing.JPanel;
-
 import userInterface.transport.DeliveryManWorkArea;
 
 /**

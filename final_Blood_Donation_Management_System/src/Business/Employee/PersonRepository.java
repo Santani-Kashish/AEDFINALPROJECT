@@ -63,5 +63,14 @@ public class PersonRepository {
         return null;
     }
 
+    public ArrayList<PersonEntity> getEmployeelist() {
+        return personEntityList;
+//To change body of generated methods, choose Tools | Templates.
+    }
+
+    
+
+    
+
 
 }
